@@ -1,0 +1,64 @@
+package com.smartcoder.controller;
+
+
+import com.smartcoder.common.Result;
+import com.smartcoder.entity.CommonUser;
+import com.smartcoder.entity.Programmer;
+import com.smartcoder.entity.User;
+import com.smartcoder.entity.dto.ChangePasswordDTO;
+import com.smartcoder.entity.dto.UserLoginDTO;
+import com.smartcoder.entity.dto.UserRegistrationDTO;
+import com.smartcoder.service.UserService;
+import com.smartcoder.utils.JwtUtil;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
+
+@RestController
+@RequestMapping("/users")
+public class UserController {
+
+    @Autowired
+    private UserService userService;
+
+    @PostMapping("/auth/register")
+    public Result register(@RequestBody UserRegistrationDTO userDto) {
+        User user;
+
+        if ("PROGRAMMER".equalsIgnoreCase(userDto.getUserType())) {
+            Programmer programmer = new Programmer();
+            programmer.setUsername(userDto.getUsername());
+            programmer.setPassword(userDto.getPassword());
+            programmer.setEmail(userDto.getEmail());
+            user = programmer;
+        } else if ("COMMONUSER".equalsIgnoreCase(userDto.getUserType())) {
+            CommonUser commonUser = new CommonUser();
+            commonUser.setUsername(userDto.getUsername());
+            commonUser.setPassword(userDto.getPassword());
+            commonUser.setEmail(userDto.getEmail());
+            user = commonUser;
+        } else {
+            throw new IllegalArgumentException("Invalid userType");
+        }
+
+        return Result.success(userService.register(user));
+    }
+
+
+    @PostMapping("/auth/login")
+    public Result login(@RequestBody UserLoginDTO userLoginDto) {
+        User login = userService.login(userLoginDto.getUsername(), userLoginDto.getPassword());
+
+        return Result.success(JwtUtil.generateToken(login.getUsername()));
+    }
+
+
+    @PutMapping("/change-password")
+    public Result changePassword(@RequestBody ChangePasswordDTO changePasswordDTO) {
+        userService.changePassword(changePasswordDTO);
+
+        return Result.success();
+    }
+
+
+
+}
