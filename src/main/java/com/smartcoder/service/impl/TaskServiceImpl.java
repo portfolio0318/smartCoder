@@ -12,6 +12,8 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
+import java.time.ZoneId;
 import java.util.List;
 
 /**
@@ -50,7 +52,10 @@ public class TaskServiceImpl extends ServiceImpl<TaskMapper, Task> implements Ta
         if (tasks == null) {
             return Result.fail("No task!");
         }
-        return getResult(tasks);
+        for (Task task : tasks) {
+            task.setContent(task.getContent());
+        }
+        return Result.success(tasks);
     }
 
     @Override
@@ -62,12 +67,12 @@ public class TaskServiceImpl extends ServiceImpl<TaskMapper, Task> implements Ta
     public Result addTask(Task task) {
         if (task == null) {
             return Result.fail("The task is empty");
-
         }
         Task existingTask = taskMapper.selectById(task.getTaskId());
         if (existingTask != null) {
             return Result.fail("Task ID already exists");
         }
+
         task.setFinished(0);
         taskMapper.insert(task);
         return Result.success();
@@ -78,7 +83,10 @@ public class TaskServiceImpl extends ServiceImpl<TaskMapper, Task> implements Ta
         QueryWrapper<Task> queryWrapper = new QueryWrapper<>();
         queryWrapper.eq("user_id", userId);
         List<Task> tasks = taskMapper.selectList(queryWrapper);
-        return getResult(tasks);
+        for (Task task : tasks) {
+            task.setContent(task.getContent());
+        }
+        return Result.success(tasks);
     }
 
     @Override
@@ -87,20 +95,12 @@ public class TaskServiceImpl extends ServiceImpl<TaskMapper, Task> implements Ta
         queryWrapper.eq("user_id", userId);
         queryWrapper.eq("finished", 0);
         List<Task> tasks = taskMapper.selectList(queryWrapper);
-        return getResult(tasks);
-    }
-
-    private Result getResult(List<Task> tasks) {
         for (Task task : tasks) {
-            if (task.setContent(task.getContent().substring(0, 10) + "...") == null) {
-                task.setContent(task.getContent());
-            }else {
-                // extract the first 10 characters
-                task.setContent(task.getContent().substring(0, 10) + "...");
-            }
+            task.setContent(task.getContent());
         }
         return Result.success(tasks);
     }
+
 
     @Override
     public Result getMyAcceptTaskList(Integer userId) {
@@ -108,7 +108,10 @@ public class TaskServiceImpl extends ServiceImpl<TaskMapper, Task> implements Ta
         queryWrapper.eq("user_id", userId);
         queryWrapper.eq("finished", 1);
         List<Task> tasks = taskMapper.selectList(queryWrapper);
-        return getResult(tasks);
+        for (Task task : tasks) {
+            task.setContent(task.getContent());
+        }
+        return Result.success(tasks);
     }
 
     @Override

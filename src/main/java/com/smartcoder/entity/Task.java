@@ -3,6 +3,7 @@ package com.smartcoder.entity;
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
 import java.io.Serializable;
+import java.time.LocalDateTime;
 
 import jakarta.persistence.*;
 import lombok.Data;
@@ -38,6 +39,8 @@ public class Task implements Serializable {
     private Integer finished;
 
     private String codeType;
+
+    private String submittedTime;
 
 
 }

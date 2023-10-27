@@ -23,7 +23,9 @@ public class Result implements Serializable {
         return new Result(200, message, data);
     }
 
-
+    public static Result success(String message) {
+        return new Result(200, message, null);
+    }
     public static Result success() {
         return new Result(200, "success", null);
     }
