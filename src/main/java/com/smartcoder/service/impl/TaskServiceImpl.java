@@ -61,6 +61,14 @@ public class TaskServiceImpl extends ServiceImpl<TaskMapper, Task> implements Ta
 
     @Override
     public Result addTask(Task task) {
+        if (task == null) {
+            return Result.fail("The task is empty");
+
+        }
+        Task existingTask = taskMapper.selectById(task.getTaskId());
+        if (existingTask != null) {
+            return Result.fail("Task ID already exists");
+        }
         task.setFinished(0);
         taskMapper.insert(task);
         return Result.success();

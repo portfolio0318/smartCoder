@@ -18,9 +18,6 @@ public class UserService {
     private BCryptPasswordEncoder passwordEncoder;
 
     public User register(User user) {
-        if(userRepository.findByUsername(user.getUsername()).isPresent()) {
-            throw new IllegalArgumentException("Username already exists");
-        }
         user.setPassword(passwordEncoder.encode(user.getPassword()));
         return userRepository.save(user);
     }

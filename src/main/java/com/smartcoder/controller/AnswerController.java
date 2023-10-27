@@ -18,12 +18,12 @@ public class AnswerController {
     @Autowired
     private AnswerService answerService;
 
-    @RequestMapping("/add")
+    @RequestMapping("/auth/add")
     public Result addAnswer(@RequestBody Answer answer) {
         return answerService.addAnswer(answer);
     }
 
-    @RequestMapping("/adopt")
+    @RequestMapping("/auth/adopt")
     public Result adoptAnswer(Integer answerId, Integer status, Integer taskId) {
         return answerService.adoptAnswer(answerId, status, taskId);
     }

@@ -19,6 +19,10 @@ public class Result implements Serializable {
     public static Result success(Object data) {
         return new Result(200, "success", data);
     }
+    public static Result success(Object data,String message) {
+        return new Result(200, message, data);
+    }
+
 
     public static Result success() {
         return new Result(200, "success", null);

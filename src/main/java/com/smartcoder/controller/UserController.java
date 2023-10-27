@@ -40,22 +40,22 @@ public class UserController {
             throw new IllegalArgumentException("Invalid userType");
         }
 
-        return Result.success(userService.register(user));
+        return Result.success(userService.register(user),"Login successfully");
     }
 
 
     @PostMapping("/auth/login")
     public Result login(@RequestBody UserLoginDTO userLoginDto) {
-        User login = userService.login(userLoginDto.getUsername(), userLoginDto.getPassword());
+        //User login = userService.login(userLoginDto.getUsername(), userLoginDto.getPassword());
 
-        return Result.success(JwtUtil.generateToken(login.getUsername()));
+        return Result.success(userService.login(userLoginDto.getUsername(), userLoginDto.getPassword()),"Login successfully!");
+
     }
 
 
-    @PutMapping("/change-password")
+    @PutMapping("/auth/change-password")
     public Result changePassword(@RequestBody ChangePasswordDTO changePasswordDTO) {
         userService.changePassword(changePasswordDTO);
-
         return Result.success();
     }
 

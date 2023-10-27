@@ -19,42 +19,42 @@ public class TaskController {
     private TaskService taskService;
 
 
-    @RequestMapping("/ask")
+    @RequestMapping("/auth/ask")
     public Result askForHelp(Integer taskId, Integer userId) {
         return taskService.askForHelp(taskId, userId);
     }
 
-    @RequestMapping("/ask/list")
+    @RequestMapping("/auth/ask/list")
     public Result getAskTaskList() {
         return taskService.getAskTaskList();
     }
 
-    @RequestMapping("/detail")
+    @RequestMapping("/auth/detail")
     public Result getTaskDetail( Integer taskId) {
         return taskService.getTaskDetail(taskId);
     }
 
-    @RequestMapping("/add")
+    @RequestMapping("/auth/add")
     public Result addTask(@RequestBody Task task) {
         return taskService.addTask(task);
     }
 
-    @RequestMapping("/my/list")
+    @RequestMapping("/auth/my/list")
     public Result getMyTaskList(Integer userId) {
         return taskService.getMyTaskList(userId);
     }
 
-    @RequestMapping("/my/ask/list")
+    @RequestMapping("/auth/my/ask/list")
     public Result getMyAskTaskList(Integer userId) {
         return taskService.getMyAskTaskList(userId);
     }
 
-    @RequestMapping("/my/accept/list")
+    @RequestMapping("/auth/my/accept/list")
     public Result getMyAnswerList(Integer userId) {
         return taskService.getMyAcceptTaskList(userId);
     }
 
-    @RequestMapping("/task/detail")
+    @RequestMapping("/auth/task/detail")
     public Result getTaskAnswerDetail(Integer taskId) {
         return taskService.getTaskAnswerDetail(taskId);
     }
