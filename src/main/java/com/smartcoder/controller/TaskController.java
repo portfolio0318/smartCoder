@@ -50,7 +50,7 @@ public class TaskController {
     }
 
     @RequestMapping("/auth/my/accept/list")
-    public Result getMyAnswerList(Integer userId) {
+    public Result getMyAcceptTaskList(Integer userId) {
         return taskService.getMyAcceptTaskList(userId);
     }
 

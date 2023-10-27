@@ -47,11 +47,10 @@ public class TaskServiceImpl extends ServiceImpl<TaskMapper, Task> implements Ta
         QueryWrapper<Task> queryWrapper = new QueryWrapper<>();
         queryWrapper.eq("finished", 0);
         List<Task> tasks = taskMapper.selectList(queryWrapper);
-        for (Task task : tasks) {
-            // extract the first 10 characters
-            task.setContent(task.getContent().substring(0, 10) + "...");
+        if (tasks == null) {
+            return Result.fail("No task!");
         }
-        return Result.success(tasks);
+        return getResult(tasks);
     }
 
     @Override
@@ -79,11 +78,7 @@ public class TaskServiceImpl extends ServiceImpl<TaskMapper, Task> implements Ta
         QueryWrapper<Task> queryWrapper = new QueryWrapper<>();
         queryWrapper.eq("user_id", userId);
         List<Task> tasks = taskMapper.selectList(queryWrapper);
-        for (Task task : tasks) {
-            // extract the first 10 characters
-            task.setContent(task.getContent().substring(0, 10) + "...");
-        }
-        return Result.success(tasks);
+        return getResult(tasks);
     }
 
     @Override
@@ -92,9 +87,17 @@ public class TaskServiceImpl extends ServiceImpl<TaskMapper, Task> implements Ta
         queryWrapper.eq("user_id", userId);
         queryWrapper.eq("finished", 0);
         List<Task> tasks = taskMapper.selectList(queryWrapper);
+        return getResult(tasks);
+    }
+
+    private Result getResult(List<Task> tasks) {
         for (Task task : tasks) {
-            // extract the first 10 characters
-            task.setContent(task.getContent().substring(0, 10) + "...");
+            if (task.setContent(task.getContent().substring(0, 10) + "...") == null) {
+                task.setContent(task.getContent());
+            }else {
+                // extract the first 10 characters
+                task.setContent(task.getContent().substring(0, 10) + "...");
+            }
         }
         return Result.success(tasks);
     }
@@ -105,11 +108,7 @@ public class TaskServiceImpl extends ServiceImpl<TaskMapper, Task> implements Ta
         queryWrapper.eq("user_id", userId);
         queryWrapper.eq("finished", 1);
         List<Task> tasks = taskMapper.selectList(queryWrapper);
-        for (Task task : tasks) {
-            // extract the first 10 characters
-            task.setContent(task.getContent().substring(0, 10) + "...");
-        }
-        return Result.success(tasks);
+        return getResult(tasks);
     }
 
     @Override
@@ -121,8 +120,6 @@ public class TaskServiceImpl extends ServiceImpl<TaskMapper, Task> implements Ta
         QueryWrapper<Answer> queryWrapper = new QueryWrapper<>();
         queryWrapper.eq("task_id", taskId);
         List<Answer> answers = answerMapper.selectList(queryWrapper);
-
-
         AnswerTaskDetail result = new AnswerTaskDetail();
         result.setTask(task);
         result.setAnswerList(answers);

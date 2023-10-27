@@ -26,6 +26,14 @@ public class AnswerServiceImpl extends ServiceImpl<AnswerMapper, Answer> impleme
 
     @Override
     public Result addAnswer(Answer answer) {
+        if(answer.getTaskId()==null&&answer.getUserId()==null){
+            return Result.fail("The task or user does not exist!");
+        }else{
+            Answer existingAnswer = answerMapper.selectById(answer.getAnswerId());
+            if (existingAnswer != null) {
+                return Result.fail("The answer id already exist");
+            }
+        }
         answer.setAccepted(0);
         return Result.success(answerMapper.insert(answer));
     }
