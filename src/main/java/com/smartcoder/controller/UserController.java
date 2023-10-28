@@ -43,7 +43,8 @@ public class UserController {
             commonUser.setEmail(userDto.getEmail());
             user = commonUser;
         } else {
-            throw new IllegalArgumentException("Invalid userType");
+            //throw new IllegalArgumentException("Invalid userType");
+            return Result.fail("Invalid userType.");
         }
 
         return Result.success(userService.register(user),"Login successfully");

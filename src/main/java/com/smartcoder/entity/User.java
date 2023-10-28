@@ -1,5 +1,7 @@
 package com.smartcoder.entity;
 
+import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableId;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -15,7 +17,7 @@ public abstract class User {
     private String username;
     private String password;
     private String email;
-
+    private String userType;
 
 }
 
