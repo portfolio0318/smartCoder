@@ -8,24 +8,24 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class JwtUtil {
-    /**过期时间---24 hour*/
+    //expiry time is 24 hours
     private static final int EXPIRATION_TIME = 60*60*24;
-    /**自己设定的秘钥*/
+    //secret key
     private static final String SECRET = "smartcoder";
-    /**前缀*/
+    //prefix
     public static final String TOKEN_PREFIX = "Bearer ";
-    /**表头授权*/
+    //authorization header
     public static final String AUTHORIZATION = "Authorization";
 
     /**
-     * 创建Token
+     * generate token
      */
     public static String generateToken(String username) {
         Calendar calendar = Calendar.getInstance();
         Date now = calendar.getTime();
-        // 设置签发时间
+        // set issued time
         calendar.setTime(new Date());
-        // 设置过期时间
+        // set expiry time
         // 添加秒钟
         calendar.add(Calendar.SECOND, EXPIRATION_TIME);
         Date time = calendar.getTime();
