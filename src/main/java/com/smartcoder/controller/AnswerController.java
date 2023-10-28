@@ -28,5 +28,8 @@ public class AnswerController {
         return answerService.adoptAnswer(answerId, status, taskId);
     }
 
-
+    @RequestMapping("/auth/count")
+    public Result amountAnswer() {
+        return answerService.amountAnswer();
+    }
 }

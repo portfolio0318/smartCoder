@@ -42,7 +42,7 @@ public class UserService {
             return Result.fail("Invalid account or password");
         }
 
-        return Result.success(user);
+        return Result.success(user,"Login successfully!");
     }
 
     public Result changePassword(ChangePasswordDTO changePasswordDTO) {

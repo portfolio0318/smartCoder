@@ -2,8 +2,6 @@ package com.smartcoder.controller;
 
 
 import com.smartcoder.common.Result;
-import com.smartcoder.entity.CommonUser;
-import com.smartcoder.entity.Programmer;
 import com.smartcoder.entity.User;
 import com.smartcoder.entity.dto.ChangePasswordDTO;
 import com.smartcoder.entity.dto.UserLoginDTO;
@@ -21,7 +19,6 @@ public class UserController {
 
     @PostMapping("/auth/register")
     public Result register(@RequestBody UserRegistrationDTO userDto) {
-        User user;
         // Check if username or email already exists
         if(userService.existsByUsername(userDto.getUsername())) {
             return Result.fail("Username is already taken.");
@@ -30,24 +27,20 @@ public class UserController {
         if(userService.existsByEmail(userDto.getEmail())) {
             return Result.fail("Email is already registered.");
         }
-        if ("PROGRAMMER".equalsIgnoreCase(userDto.getUserType())) {
-            Programmer programmer = new Programmer();
-            programmer.setUsername(userDto.getUsername());
-            programmer.setPassword(userDto.getPassword());
-            programmer.setEmail(userDto.getEmail());
-            user = programmer;
-        } else if ("COMMONUSER".equalsIgnoreCase(userDto.getUserType())) {
-            CommonUser commonUser = new CommonUser();
-            commonUser.setUsername(userDto.getUsername());
-            commonUser.setPassword(userDto.getPassword());
-            commonUser.setEmail(userDto.getEmail());
-            user = commonUser;
-        } else {
-            //throw new IllegalArgumentException("Invalid userType");
-            return Result.fail("Invalid userType.");
+        if (!"PROGRAMMER".equalsIgnoreCase(userDto.getUserType()) &&
+                !"COMMONUSER".equalsIgnoreCase(userDto.getUserType())) {
+            return Result.fail("Invalid userType");
+        }else{
+            User user = new User();
+            user.setUserType(userDto.getUserType());
+            user.setUsername(userDto.getUsername());
+            user.setPassword(userDto.getPassword());
+            user.setEmail(userDto.getEmail());
+            user.setUserType(userDto.getUserType());
+            return Result.success(userService.register(user),"Register successfully");
         }
 
-        return Result.success(userService.register(user),"Login successfully");
+
     }
 
 

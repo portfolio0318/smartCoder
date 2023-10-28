@@ -29,4 +29,11 @@ public interface AnswerService extends IService<Answer> {
      */
     Result adoptAnswer(Integer answerId, Integer status, Integer taskId);
 
+    /**
+     * Return amount of all answer
+     *
+     * @return Result
+     */
+    Result amountAnswer();
+
 }

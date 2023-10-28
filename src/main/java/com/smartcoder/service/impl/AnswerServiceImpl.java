@@ -60,4 +60,10 @@ public class AnswerServiceImpl extends ServiceImpl<AnswerMapper, Answer> impleme
         }
         return Result.success(answerMapper.updateById(answer));
     }
+
+    @Override
+    public Result amountAnswer() {
+        int count = Math.toIntExact(answerMapper.selectCount(null));
+        return Result.success(count);
+    }
 }
