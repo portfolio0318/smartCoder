@@ -58,7 +58,7 @@ public class UserController {
 
     }
 
-    @GetMapping("/auth/getusername/{userId}")
+    @GetMapping("/auth/getusername")
     public Result getUsernameById(Integer userId) {
         return userService.getUsernameById(userId);
     }
