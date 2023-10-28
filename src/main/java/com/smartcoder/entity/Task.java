@@ -42,7 +42,7 @@ public class Task implements Serializable {
 
     private String submittedTime;
 
-    private Integer floor;
+
 
 
 }

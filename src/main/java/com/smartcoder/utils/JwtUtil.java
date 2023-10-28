@@ -6,11 +6,7 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
-/**
- * @author: xxm
- * @description:
- * @date: 2020/5/28 15:53
- */
+
 public class JwtUtil {
     /**过期时间---24 hour*/
     private static final int EXPIRATION_TIME = 60*60*24;

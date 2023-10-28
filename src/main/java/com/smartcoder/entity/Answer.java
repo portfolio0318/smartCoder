@@ -42,4 +42,6 @@ public class Answer implements Serializable {
 
     private String submittedTime;
 
+    private Integer floor;
+
 }
