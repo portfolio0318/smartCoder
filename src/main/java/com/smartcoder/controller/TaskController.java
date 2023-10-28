@@ -24,9 +24,13 @@ public class TaskController {
         return taskService.askForHelp(taskId, userId);
     }
 
-    @RequestMapping("/auth/ask/list")
-    public Result getAskTaskList() {
-        return taskService.getAskTaskList();
+    @RequestMapping("/auth/ask/unfinishedlist")
+    public Result getAskUnfinishedTaskList() {
+        return taskService.getAskUnfinishedTaskList();
+    }
+
+    @RequestMapping("/auth/ask/alllist")
+    public Result getAskAllTaskList() {return taskService.getAskAllTaskList();
     }
 
     @RequestMapping("/auth/detail")

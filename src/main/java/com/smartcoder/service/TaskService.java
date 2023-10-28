@@ -26,7 +26,13 @@ public interface TaskService extends IService<Task> {
      * get unfinished task
      * @return Result
      */
-    Result getAskTaskList();
+    Result getAskUnfinishedTaskList();
+
+    /**
+     * get All task
+     * @return Result
+     */
+    Result getAskAllTaskList();
 
     /**
      * get task detail

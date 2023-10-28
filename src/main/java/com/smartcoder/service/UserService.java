@@ -62,4 +62,12 @@ public class UserService {
         return Result.success("Password changed successfully");
     }
 
+    public Result getUsernameById(int userId) {
+        User user = userRepository.findById(userId).orElse(null);
+        if (user == null) {
+            return Result.fail("User not found for ID: " + userId);
+        }
+        return Result.success(user.getUsername(),"Find it successfully!");
+    }
+
 }

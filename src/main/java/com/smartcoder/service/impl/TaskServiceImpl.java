@@ -45,9 +45,22 @@ public class TaskServiceImpl extends ServiceImpl<TaskMapper, Task> implements Ta
     }
 
     @Override
-    public Result getAskTaskList() {
+    public Result getAskUnfinishedTaskList() {
         QueryWrapper<Task> queryWrapper = new QueryWrapper<>();
         queryWrapper.eq("finished", 0);
+        List<Task> tasks = taskMapper.selectList(queryWrapper);
+        if (tasks == null) {
+            return Result.fail("No task!");
+        }
+        for (Task task : tasks) {
+            task.setContent(task.getContent());
+        }
+        return Result.success(tasks);
+    }
+
+    @Override
+    public Result getAskAllTaskList() {
+        QueryWrapper<Task> queryWrapper = new QueryWrapper<>();
         List<Task> tasks = taskMapper.selectList(queryWrapper);
         if (tasks == null) {
             return Result.fail("No task!");

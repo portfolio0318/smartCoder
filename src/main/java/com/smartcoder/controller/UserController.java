@@ -64,6 +64,11 @@ public class UserController {
 
     }
 
+    @GetMapping("/auth/getusername/{userId}")
+    public Result getUsernameById(@PathVariable int userId) {
+        return userService.getUsernameById(userId);
+    }
+
 
 
 }
