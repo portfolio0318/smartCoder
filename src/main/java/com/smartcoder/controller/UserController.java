@@ -23,7 +23,14 @@ public class UserController {
     @PostMapping("/auth/register")
     public Result register(@RequestBody UserRegistrationDTO userDto) {
         User user;
+        // Check if username or email already exists
+        if(userService.existsByUsername(userDto.getUsername())) {
+            return Result.fail("Username is already taken.");
+        }
 
+        if(userService.existsByEmail(userDto.getEmail())) {
+            return Result.fail("Email is already registered.");
+        }
         if ("PROGRAMMER".equalsIgnoreCase(userDto.getUserType())) {
             Programmer programmer = new Programmer();
             programmer.setUsername(userDto.getUsername());
