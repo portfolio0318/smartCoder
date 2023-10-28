@@ -66,4 +66,19 @@ public class AnswerServiceImpl extends ServiceImpl<AnswerMapper, Answer> impleme
         int count = Math.toIntExact(answerMapper.selectCount(null));
         return Result.success(count);
     }
+
+    @Override
+    public Result updateAcceptedStatus(Integer answerId) {
+        Answer answer = answerMapper.selectById(answerId);
+        if (answer == null) {
+            return Result.fail("The answer does not exist");
+        }
+        if (answer.getAccepted() == 0) {
+            answer.setAccepted(1);
+        } else {
+            answer.setAccepted(0);
+        }
+        answerMapper.updateById(answer);
+        return Result.success(answer);
+    }
 }

@@ -29,7 +29,10 @@ public class AnswerController {
     }
 
     @RequestMapping("/auth/count")
-    public Result amountAnswer() {
-        return answerService.amountAnswer();
+    public Result amountAnswer() {return answerService.amountAnswer();}
+
+    @RequestMapping("/auth/updateAccepted")
+    public Result toggleAcceptedStatus( Integer answerId) {
+        return answerService.updateAcceptedStatus(answerId);
     }
 }

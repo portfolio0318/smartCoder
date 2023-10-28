@@ -59,8 +59,11 @@ public class TaskController {
     }
 
     @RequestMapping("/auth/task/detail")
-    public Result getTaskAnswerDetail(Integer taskId) {
-        return taskService.getTaskAnswerDetail(taskId);
+    public Result getTaskAnswerDetail(Integer taskId) {return taskService.getTaskAnswerDetail(taskId);}
+
+    @RequestMapping("/auth/task/updateFinishedStatus")
+    public Result updateFinishedStatus(Integer taskId) {
+        return taskService.updateFinishedStatus(taskId);
     }
 
 }

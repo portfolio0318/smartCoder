@@ -75,5 +75,11 @@ public interface TaskService extends IService<Task> {
      * @return Result
      */
     Result getTaskAnswerDetail(Integer taskId);
+    /**
+     * update task finished status
+     * @param taskId task id
+     * @return Result
+     */
+    Result updateFinishedStatus(Integer taskId);
 
 }

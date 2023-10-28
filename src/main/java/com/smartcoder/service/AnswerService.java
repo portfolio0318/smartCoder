@@ -36,4 +36,11 @@ public interface AnswerService extends IService<Answer> {
      */
     Result amountAnswer();
 
+    /**
+     * update accepted status
+     *
+     * @return Result
+     */
+    Result updateAcceptedStatus(Integer answerId);
+
 }

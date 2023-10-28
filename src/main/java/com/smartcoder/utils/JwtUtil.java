@@ -26,7 +26,7 @@ public class JwtUtil {
         // set issued time
         calendar.setTime(new Date());
         // set expiry time
-        // 添加秒钟
+        // add seconds
         calendar.add(Calendar.SECOND, EXPIRATION_TIME);
         Date time = calendar.getTime();
         HashMap<String, Object> map = new HashMap<>();
@@ -34,18 +34,17 @@ public class JwtUtil {
         map.put("username", username);
         String jwt = Jwts.builder()
                 .setClaims(map)
-                //签发时间
+                //issued time
                 .setIssuedAt(now)
-                //过期时间
+                //expiry time
                 .setExpiration(time)
                 .signWith(SignatureAlgorithm.HS256, SECRET)
                 .compact();
-        //jwt前面一般都会加Bearer
         return TOKEN_PREFIX + jwt;
     }
     /**
      *
-     * 解密Token
+     * JWT is usually prefixed with 'Bearer'
      */
     public static String validateToken(String token) {
         // parse the token.

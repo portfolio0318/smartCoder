@@ -142,4 +142,24 @@ public class TaskServiceImpl extends ServiceImpl<TaskMapper, Task> implements Ta
 
         return Result.success(result);
     }
+
+    @Override
+    public Result updateFinishedStatus(Integer taskId) {
+        Task task = taskMapper.selectById(taskId);
+        if (task == null) {
+            return Result.fail("The task does not exist");
+        }
+
+        // changed finished status
+        if (task.getFinished() == 0) {
+            task.setFinished(1);
+            taskMapper.updateById(task);
+            return Result.success(task,"The task is finished!");
+        } else {
+            task.setFinished(0);
+            taskMapper.updateById(task);
+            return Result.success(task,"The task is unfinished!");
+        }
+
+    }
 }
