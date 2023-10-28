@@ -1,6 +1,7 @@
 package com.smartcoder.service;
 
 
+import com.smartcoder.common.Result;
 import com.smartcoder.entity.User;
 import com.smartcoder.entity.dto.ChangePasswordDTO;
 import com.smartcoder.repository.UserRepository;
@@ -30,28 +31,35 @@ public class UserService {
         return userRepository.save(user);
     }
 
-    public User login(String username, String password) {
-        User user = userRepository.findByUsername(username)
-                .orElseThrow(() -> new RuntimeException("User not found : " + username));
+    public Result login(String username, String password) {
+        User user = userRepository.findByUsername(username).orElse(null);
 
-        if (!passwordEncoder.matches(password, user.getPassword())) {
-            throw new RuntimeException("Invalid account or password");
+        if (user == null) {
+            return Result.fail("User not found: " + username);
         }
 
-        return user;
+        if (!passwordEncoder.matches(password, user.getPassword())) {
+            return Result.fail("Invalid account or password");
+        }
+
+        return Result.success(user);
     }
 
-    public void changePassword(ChangePasswordDTO changePasswordDTO) {
-        User user = userRepository.findByUsername(changePasswordDTO.getUsername())
-                .orElseThrow(() -> new RuntimeException("User not found : " + changePasswordDTO.getUsername()));
+    public Result changePassword(ChangePasswordDTO changePasswordDTO) {
+        User user = userRepository.findByUsername(changePasswordDTO.getUsername()).orElse(null);
+
+        if (user == null) {
+            return Result.fail("User not found: " + changePasswordDTO.getUsername());
+        }
 
         // Verify old password
         if (!passwordEncoder.matches(changePasswordDTO.getOldPassword(), user.getPassword())) {
-            throw new RuntimeException("Old password is incorrect");
+            return Result.fail("Old password is incorrect");
         }
 
         user.setPassword(passwordEncoder.encode(changePasswordDTO.getNewPassword()));
         userRepository.save(user);
+        return Result.success("Password changed successfully");
     }
 
 }

@@ -9,7 +9,6 @@ import com.smartcoder.entity.dto.ChangePasswordDTO;
 import com.smartcoder.entity.dto.UserLoginDTO;
 import com.smartcoder.entity.dto.UserRegistrationDTO;
 import com.smartcoder.service.UserService;
-import com.smartcoder.utils.JwtUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -54,16 +53,15 @@ public class UserController {
     @PostMapping("/auth/login")
     public Result login(@RequestBody UserLoginDTO userLoginDto) {
         //User login = userService.login(userLoginDto.getUsername(), userLoginDto.getPassword());
-
-        return Result.success(userService.login(userLoginDto.getUsername(), userLoginDto.getPassword()),"Login successfully!");
+        return userService.login(userLoginDto.getUsername(), userLoginDto.getPassword());
 
     }
 
 
     @PutMapping("/auth/change-password")
     public Result changePassword(@RequestBody ChangePasswordDTO changePasswordDTO) {
-        userService.changePassword(changePasswordDTO);
-        return Result.success();
+        return userService.changePassword(changePasswordDTO);
+
     }
 
 
