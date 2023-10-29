@@ -1,91 +1,118 @@
-# SmartCoder 后端
+# SmartCoder Backend
 
-SmartCoder 是一个智能编码助手，为编程人员和普通用户提供代码生成、代码注释和代码修改功能。用户可以通过简单的描述获取所需的代码，同时还能在我们的论坛上发布和接取编程任务。
+SmartCoder is an intelligent coding assistant, offering code generation, code annotation, and code modification functions for programmers and ordinary users. Users can obtain the desired code through simple descriptions and can also post and accept programming tasks on our forum.
 
-## 技术栈
+## **Technology Stack**
 
-### 基本框架
-- **Spring Boot**: 版本 3.1.4
-- **Maven**: 用于项目构建和依赖管理
+### **Basic Framework**
 
-### 编程语言
-- **Java**: 版本 17
+- **Spring Boot**: Version 3.1.4
+- **Maven**: project building and dependency management
 
-### 数据库相关
-- **MySQL**: 通过 `mysql-connector-j` 连接器
+### **Programming Language**
+
+- **Java**: version 17
+
+### **Database Related**
+
+- **MySQL**: Connected via `mysql-connector-j` 
 - **Spring Data JPA**
-- **MyBatis**: 版本 3.5.10
-- **MyBatis-Plus**: 版本 3.5.3.1
+- **MyBatis**: Version 3.5.10
+- **MyBatis-Plus**: Version 3.5.3.1
 
-### Web 开发
-- **Spring Web MVC**: 通过 `spring-boot-starter-web`
+### **Web Development**
 
-### 安全和认证
-- **Spring Security**: 通过 `spring-boot-starter-security`
-- **JSON Web Tokens (JWT)**: 通过 `jjwt` 库, 版本 0.9.0
+- **Spring Web MVC**: Via `spring-boot-starter-web`
 
-### 测试
-- **Spring Boot Test**: 通过 `spring-boot-starter-test`
+### **Security and Authentication**
 
-### 其他库和工具
-- **Project Lombok**: 简化代码，例如自动生成 getters 和 setters
-- **JAXB (Java Architecture for XML Binding)**: 版本 2.3.0
-- **Spring Boot DevTools**: 提供快速应用重启、LiveReload 和其他开发时功能
+- **Spring Security**: Via `spring-boot-starter-security`
+- **JSON Web Tokens (JWT)**: Via `jjwt` library, Version 0.9.0
 
-### 构建和运行
-- **Spring Boot Maven Plugin**: 用于构建和运行 Spring Boot 应用
+### Test
+- **Spring Boot Test**: Via `spring-boot-starter-test`
 
-## 安装与配置
+### **Other Libraries and Tools**
 
-### 前提条件
+- **Project Lombok**: Simplifies code, e.g., automatically generating getters and setters
+- **JAXB (Java Architecture for XML Binding)**: Version 2.3.0
+- **Spring Boot DevTools**: Provides quick application restarts, LiveReload, and other development-time-features
+
+### **Build and Run**
+
+- **Spring Boot Maven Plugin**: For building and running the Spring Boot application
+
+## **Installation and Configuration**
+
+### **Prerequisites**
+
 - JDK 17
-- MySQL 数据库
-- Maven (推荐版本 3.6 或以上)
+- MySQL Database
+- Maven (recommended version 3.6 or higher)
 
-### 步骤
+### **Steps**
 
-1. **克隆仓库**:
-   使用以下命令克隆项目仓库到本地：
+1. **Clone the repository**:
+
+   Use the following command to clone the project repository locally:
+
    ```bash
    git clone https://github.com/portfolio0318/smartCoder.git
    cd smartcoder
    ```
 
-2. **配置数据库**:
-   - 在 MySQL 中创建一个新的数据库和用户。
-   - 更新 `src/main/resources/application.properties` 文件，设置正确的数据库连接信息，例如：
-   spring.datasource.url=jdbc:mysql://localhost:3306/smartcoder
-   spring.datasource.username=username
-   spring.datasource.password=password
+2. **Configure the database**:
+
+   - Create a new database and user in MySQL.
+
+   - Update `src/main/resources/application.properties` files with the correct database connection information, e.g.:
+
+     ```
+     spring.datasource.url=jdbc:mysql://localhost:3306/smartcoder
+
+     spring.datasource.username=username
+
+     spring.datasource.password=password
+     ```
+
+     ​
 
 
-3. **构建项目**:
-   使用 Maven 构建项目：
+3. **Build the project**:
 
-   mvn clean install
+   Build the project using Maven:
 
-
-4. **运行项目**:
-   使用以下命令运行项目：
-
-   mvn spring-boot:run
+   ``mvn clean install``
 
 
-5. **(可选) 配置额外的应用设置**:
-   根据需要，你可以更新 `src/main/resources/application.properties` 文件，配置其他应用设置，例如服务器端口、日志级别等。
+4. **Run the project**:
 
-6. **访问应用**:
-   在浏览器中输入 `http://localhost:9090` 来访问你的应用。
+   Use the following command to run the project:
 
-## API 文档
-
-API 文档请参见 [smartCoderAPI.md](smartCoderAPI.md)
-### 测试
-运行以下命令以执行项目的测试：
-
-mvn test
+   ``mvn spring-boot:run``
 
 
-## 贡献
+5. ***(Optional) Configure additional application settings*:**
 
-欢迎提交 Pull Request 或提出 Issue。请确保您的代码通过了所有的测试。
+    You can update the``src/main/resources/application.properties``   file to configure other application settings, such as server port, logging level, etc.
+
+    
+
+6. **Access the application**:
+
+   Enter [http://localhost:9090](http://localhost:9090/) in your browser to access your application.
+
+## API **Documentation**
+
+Please refer to smartCoderAPI.md for API documentation.
+
+### Test
+Run the following command to execute the project's tests:
+
+``mvn test``
+
+**Contributions**
+
+1. Project Contributors: **Shicong Hu, *Wentian Tang**, **Chengxi Li, *Xiaorong Huang, *Ronghui Shao**
+
+Feel free to submit Pull Requests or raise Issues. Please make sure your code passes all tests.
