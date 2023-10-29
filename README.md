@@ -113,6 +113,6 @@ Run the following command to execute the project's tests:
 
 **Contributions**
 
-1. Project Contributors: **Shicong Hu, *Wentian Tang**, **Chengxi Li, *Xiaorong Huang, *Ronghui Shao**
+1. Project Contributors: **Shicong Hu, Wentian Tang, Chengxi Li, Xiaorong Huang, Ronghui Shao**
 
 Feel free to submit Pull Requests or raise Issues. Please make sure your code passes all tests.
