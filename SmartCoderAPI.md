@@ -1,14 +1,14 @@
 ---
 title: SmartCoder v1.0.0
 language_tabs:
-  - shell: Shell
-  - http: HTTP
-  - javascript: JavaScript
-  - ruby: Ruby
-  - python: Python
-  - php: PHP
-  - java: Java
-  - go: Go
+   - shell: Shell
+   - http: HTTP
+   - javascript: JavaScript
+   - ruby: Ruby
+   - python: Python
+   - php: PHP
+   - java: Java
+   - go: Go
 toc_footers: []
 includes: []
 search: true
@@ -19,63 +19,62 @@ generator: "@tarslib/widdershins v4.0.17"
 
 ---
 
-# SmartCoder
+#SmartCoder
 
 > v1.0.0
 
 Base URLs:
 
-# Authentication
+#Authentication
 
-# accountManagement
+#accountManagement
 
 ## POST Login
 
 POST /users/auth/login
 
-> Body 请求参数
+> Body Request parameters
 
 ```json
 {
-  "username": "john",
-  "password": "newPassword456"
+   "username": "john",
+   "password": "newPassword456"
 }
 ```
 
-### 请求参数
+### Request parameters
 
-|名称|位置|类型|必选|说明|
+|Name|Location|Type|Required|Description|
 |---|---|---|---|---|
-|body|body|object| 否 |none|
+|body|body|object| No |none|
+> Return example
 
-> 返回示例
-
-> 成功
+> Success
 
 ```json
 {
-  "code": 200,
-  "message": "Login successfully!",
-  "data": {
-    "id": 1,
-    "username": "proguser123",
-    "password": "$2a$10$YRMxlJZVDftEC8uem.FQnuVJn5pI2Ij7BIR8lbWv8D6zyTXTwJh6O",
-    "email": "proguser123@example.com"
-  }
+   "code": 200,
+   "message": "Login successfully!",
+   "data": {
+     "id": 1,
+     "username": "proguser123",
+     "password": "$2a$10$YRMxlJZVDftEC8uem.FQnuVJn5pI2Ij7BIR8lbWv8D6zyTXTwJh6O",
+     "email": "proguser123@example.com"
+   }
 }
 ```
 
-### 返回结果
+### Return results
 
-|状态码|状态码含义|说明|数据模型|
+|Status code|Status code meaning|Description|Data model|
 |---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|成功|Inline|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Success|Inline|
 
-### 返回数据结构
+### Return data structure
 
-状态码 **200**
+Status code **200**
 
-|名称|类型|必选|约束|中文名|说明|
+|Name|Type|Required|Constraint|Chinese name|Description|
 |---|---|---|---|---|---|
 |» code|integer|true|none||none|
 |» msg|string|true|none||none|
@@ -91,53 +90,53 @@ POST /users/auth/login
 
 POST /users/auth/register
 
-> Body 请求参数
+> Body request parameters
 
 ```json
 {
-  "username": "proguser123",
-  "password": "securepassword",
-  "email": "proguser123@example.com",
-  "userType": "PROGRAMMER"
+   "username": "proguser123",
+   "password": "securepassword",
+   "email": "proguser123@example.com",
+   "userType": "PROGRAMMER"
 }
 ```
 
-### 请求参数
+### Request parameters
 
-|名称|位置|类型|必选|说明|
+|Name|Location|Type|Required|Description|
 |---|---|---|---|---|
-|body|body|object| 否 |none|
+|body|body|object| No |none|
 
-> 返回示例
+> Return to example
 
-> 成功
+> Success
 
 ```json
 {
-  "code": 200,
-  "msg": "successful",
-  "total": 0,
-  "data": {
-    "id": 1,
-    "username": "proguser123",
-    "password": "$2a$10$i4G6TfSoFpsxmhpcOqhju.E4VkQqVnUAH3xB/j.0jw/7yu21eB61.",
-    "email": "proguser123@example.com",
-    "userType": "PROGRAMMER"
-  }
+   "code": 200,
+   "msg": "successful",
+   "total": 0,
+   "data": {
+     "id": 1,
+     "username": "proguser123",
+     "password": "$2a$10$i4G6TfSoFpsxmhpcOqhju.E4VkQqVnUAH3xB/j.0jw/7yu21eB61.",
+     "email": "proguser123@example.com",
+     "userType": "PROGRAMMER"
+   }
 }
 ```
 
-### 返回结果
+### Return results
 
-|状态码|状态码含义|说明|数据模型|
+|Status code|Status code meaning|Description|Data model|
 |---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|成功|Inline|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Success|Inline|
 
-### 返回数据结构
+### Return data structure
 
-状态码 **200**
+Status code **200**
 
-|名称|类型|必选|约束|中文名|说明|
+|Name|Type|Required|Constraint|Chinese name|Description|
 |---|---|---|---|---|---|
 |» code|integer|true|none||none|
 |» msg|string|true|none||none|
@@ -153,86 +152,86 @@ POST /users/auth/register
 
 PUT /users/change-password
 
-> Body 请求参数
+> Body request parameters
 
 ```json
 {
-  "username": "john",
-  "oldPassword": "password123",
-  "newPassword": "newPassword456"
+   "username": "john",
+   "oldPassword": "password123",
+   "newPassword": "newPassword456"
 }
 ```
 
-### 请求参数
+### Request parameters
 
-|名称|位置|类型|必选|说明|
+|Name|Location|Type|Required|Description|
 |---|---|---|---|---|
-|body|body|object| 否 |none|
+|body|body|object| No |none|
 
-> 返回示例
+> Return to example
 
-> 成功
+> Success
 
 ```json
 {
-  "code": 200,
-  "msg": "successful",
-  "total": 0,
-  "data": "Password updated for user: john"
+   "code": 200,
+   "msg": "successful",
+   "total": 0,
+   "data": "Password updated for user: john"
 }
 ```
 
-### 返回结果
+### Return results
 
-|状态码|状态码含义|说明|数据模型|
+|Status code|Status code meaning|Description|Data model|
 |---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|成功|Inline|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Success|Inline|
 
-### 返回数据结构
+### Return data structure
 
-状态码 **200**
+Status code **200**
 
-|名称|类型|必选|约束|中文名|说明|
+|Name|Type|Required|Constraint|Chinese name|Description|
 |---|---|---|---|---|---|
 |» code|integer|true|none||none|
 |» msg|string|true|none||none|
 |» total|integer|true|none||none|
 |» data|string|true|none||none|
 
-## GET GetByID
+##GET GetByID
 
 GET /users/1
 
-> 返回示例
+> Return to example
 
 > 200 Response
 
 ```json
 {
-  "code": 0,
-  "msg": "string",
-  "total": 0,
-  "data": {
-    "id": 0,
-    "username": "string",
-    "password": "string",
-    "email": "string",
-    "userType": "string"
-  }
+   "code": 0,
+   "msg": "string",
+   "total": 0,
+   "data": {
+     "id": 0,
+     "username": "string",
+     "password": "string",
+     "email": "string",
+     "userType": "string"
+   }
 }
 ```
 
-### 返回结果
+### Return results
 
-|状态码|状态码含义|说明|数据模型|
+|Status code|Status code meaning|Description|Data model|
 |---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|成功|Inline|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Success|Inline|
 
-### 返回数据结构
+### Return data structure
 
-状态码 **200**
+Status code **200**
 
-|名称|类型|必选|约束|中文名|说明|
+|Name|Type|Required|Constraint|Chinese name|Description|
 |---|---|---|---|---|---|
 |» code|integer|true|none||none|
 |» msg|string|true|none||none|
@@ -244,144 +243,144 @@ GET /users/1
 |»» email|string|true|none||none|
 |»» userType|string|true|none||none|
 
-# forum
+#forum
 
 ## POST addAnswer
 
 POST /answer/auth/add
 
-程序员发布答案
+Programmer posts answer
 
-> Body 请求参数
+> Body request parameters
 
 ```json
 {
-  "answerId": 0,
-  "taskId": 0,
-  "userId": 0,
-  "content": "string",
-  "accepted": 0
+   "answerId": 0,
+   "taskId": 0,
+   "userId": 0,
+   "content": "string",
+   "accepted": 0
 }
 ```
 
-### 请求参数
+### Request parameters
 
-|名称|位置|类型|必选|说明|
+|Name|Location|Type|Required|Description|
 |---|---|---|---|---|
-|body|body|object| 否 |none|
-|» answerId|body|integer| 是 |none|
-|» taskId|body|integer| 是 |none|
-|» userId|body|integer| 是 |none|
-|» content|body|string| 是 |none|
-|» accepted|body|integer| 是 |none|
+|body|body|object| No |none|
+|» answerId|body|integer| is |none|
+|» taskId|body|integer| is |none|
+|» userId|body|integer| is |none|
+|» content|body|string| is |none|
+|» accepted|body|integer| is |none|
 
-> 返回示例
+> Return to example
 
-> 成功
+> Success
 
 ```json
 {
-  "code": 200,
-  "message": "in ea",
-  "data": 1
+   "code": 200,
+   "message": "in ea",
+   "data": 1
 }
 ```
 
-### 返回结果
+### Return results
 
-|状态码|状态码含义|说明|数据模型|
+|Status code|Status code meaning|Description|Data model|
 |---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|成功|Inline|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Success|Inline|
 
-### 返回数据结构
+### Return data structure
 
-状态码 **200**
+Status code **200**
 
-|名称|类型|必选|约束|中文名|说明|
+|Name|Type|Required|Constraint|Chinese name|Description|
 |---|---|---|---|---|---|
 |» code|integer|true|none||200|
-|» message|string|true|none|成功|success|
+|» message|string|true|none|success|
 |» data|object¦null|false|none||none|
 
 ## GET getAskTaskList()
 
 GET /task/auth/ask/list
 
-返回用户未被解决的任务(前十个字符, 输入参数必须为必填，任务内容不少于15个字符)
+Return the user's unsolved tasks (the first ten characters, input parameters must be required, and the task content must be no less than 15 characters)
 
-> 返回示例
+> Return to example
 
-> 成功
+> Success
 
 ```json
 {
-  "code": 200,
-  "message": "success",
-  "data": [
-    {
-      "taskId": 2,
-      "userId": 1,
-      "content": "sdadasdasd...",
-      "finished": 0,
-      "codeType": "python"
-    },
-    {
-      "taskId": 3,
-      "userId": 1,
-      "content": "dassagfdfd...",
-      "finished": 0,
-      "codeType": "java"
-    },
-    {
-      "taskId": 4,
-      "userId": 1,
-      "content": "ghfhfghada...",
-      "finished": 0,
-      "codeType": "java"
-    },
-    {
-      "taskId": 5,
-      "userId": 1,
-      "content": "ghfghgfhsa...",
-      "finished": 0,
-      "codeType": null
-    },
-    {
-      "taskId": 6,
-      "userId": 1,
-      "content": "id nulla d...",
-      "finished": 0,
-      "codeType": "java"
-    },
-    {
-      "taskId": 9,
-      "userId": 1,
-      "content": "id nulla d...",
-      "finished": 0,
-      "codeType": "java"
-    },
-    {
-      "taskId": 10,
-      "userId": 1,
-      "content": "id nulla d...",
-      "finished": 0,
-      "codeType": "java"
-    }
-  ]
+   "code": 200,
+   "message": "success",
+   "data": [
+     {
+       "taskId": 2,
+       "userId": 1,
+       "content": "sdadasdasd...",
+       "finished": 0,
+       "codeType": "python"
+     },
+     {
+       "taskId": 3,
+       "userId": 1,
+       "content": "dassagfdfd...",
+       "finished": 0,
+       "codeType": "java"
+     },
+     {
+       "taskId": 4,
+       "userId": 1,
+       "content": "ghfhfghada...",
+       "finished": 0,
+       "codeType": "java"
+     },
+     {
+       "taskId": 5,
+       "userId": 1,
+       "content": "ghfghgfhsa...",
+       "finished": 0,
+       "codeType": null
+     },
+     {
+       "taskId": 6,
+       "userId": 1,
+       "content": "id nulla d...",
+       "finished": 0,
+       "codeType": "java"
+     },
+     {
+       "taskId": 9,
+       "userId": 1,
+       "content": "id nulla d...",
+       "finished": 0,
+       "codeType": "java"
+     },
+     {
+       "taskId": 10,
+       "userId": 1,
+       "content": "id nulla d...",
+       "finished": 0,
+       "codeType": "java"
+     }
+   ]
 }
 ```
 
-### 返回结果
+### Return results
 
-|状态码|状态码含义|说明|数据模型|
+|Status code|Status code meaning|Description|Data model|
 |---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|成功|Inline|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Success|Inline|
 
-### 返回数据结构
+### Return data structure
 
-状态码 **200**
+Status code **200**
 
-|名称|类型|必选|约束|中文名|说明|
+|Name|Type|Required|Constraint|Chinese name|Description|
 |---|---|---|---|---|---|
 |» code|integer|true|none|200|200|
 |» message|string|true|none|success|success|
@@ -402,39 +401,39 @@ GET /task/auth/ask/list
 
 POST /answer/auth/adopt
 
-用户采纳问题
+User adoption issues
 
-### 请求参数
+### Request parameters
 
-|名称|位置|类型|必选|说明|
+|Name|Location|Type|Required|Description|
 |---|---|---|---|---|
-|answerId|query|integer| 否 |none|
-|status |query|integer| 否 |0：取消采纳 1：采纳|
-|taskId|query|integer| 否 |none|
+|answerId|query|integer| No |none|
+|status |query|integer| No |0: Cancel adoption 1: Adopt|
+|taskId|query|integer| No |none|
 
-> 返回示例
+> Return to example
 
-> 成功
+> Success
 
 ```json
 {
-  "code": 200,
-  "message": "sucess",
-  "data": 1
+   "code": 200,
+   "message": "sucess",
+   "data": 1
 }
 ```
 
-### 返回结果
+### Return results
 
-|状态码|状态码含义|说明|数据模型|
+|Status code|Status code meaning|Description|Data model|
 |---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|成功|Inline|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Success|Inline|
 
-### 返回数据结构
+### Return data structure
 
-状态码 **200**
+Status code **200**
 
-|名称|类型|必选|约束|中文名|说明|
+|Name|Type|Required|Constraint|Chinese name|Description|
 |---|---|---|---|---|---|
 |» code|integer|true|none|200|200|
 |» message|string|true|none|sucess|sucess|
@@ -444,38 +443,38 @@ POST /answer/auth/adopt
 
 POST /task/auth/ask
 
-用户向程序员请求帮助
+User asks programmer for help
 
-### 请求参数
+### Request parameters
 
-|名称|位置|类型|必选|说明|
+|Name|Location|Type|Required|Description|
 |---|---|---|---|---|
-|taskId|query|integer| 否 |none|
-|userId|query|integer| 否 |none|
+|taskId|query|integer| No |none|
+|userId|query|integer| No |none|
 
-> 返回示例
+> Return to example
 
 > 200 Response
 
 ```json
 {
-  "code": 0,
-  "message": "string",
-  "data": {}
+   "code": 0,
+   "message": "string",
+   "data": {}
 }
 ```
 
-### 返回结果
+### Return results
 
-|状态码|状态码含义|说明|数据模型|
+|Status code|Status code meaning|Description|Data model|
 |---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|成功|Inline|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Success|Inline|
 
-### 返回数据结构
+### Return data structure
 
-状态码 **200**
+Status code **200**
 
-|名称|类型|必选|约束|中文名|说明|
+|Name|Type|Required|Constraint|Chinese name|Description|
 |---|---|---|---|---|---|
 |» code|integer|true|none|200|200|
 |» message|string|true|none|sucess|sucess|
@@ -485,43 +484,43 @@ POST /task/auth/ask
 
 GET /task/auth/detail
 
-返回任务详情
+Return to task details
 
-### 请求参数
+### Request parameters
 
-|名称|位置|类型|必选|说明|
+|Name|Location|Type|Required|Description|
 |---|---|---|---|---|
-|taskId|query|integer| 否 |none|
+|taskId|query|integer| No |none|
 
-> 返回示例
+> Return to example
 
-> 成功
+> Success
 
 ```json
 {
-  "code": 200,
-  "message": "success",
-  "data": {
-    "taskId": 65,
-    "userId": 47,
-    "content": "id nulla dolor consequat ut",
-    "finished": 0,
-    "codeType": "java"
-  }
+   "code": 200,
+   "message": "success",
+   "data": {
+     "taskId": 65,
+     "userId": 47,
+     "content": "id nulla dolor consequat ut",
+     "finished": 0,
+     "codeType": "java"
+   }
 }
 ```
 
-### 返回结果
+### Return results
 
-|状态码|状态码含义|说明|数据模型|
+|Status code|Status code meaning|Description|Data model|
 |---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|成功|Inline|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Success|Inline|
 
-### 返回数据结构
+### Return data structure
 
-状态码 **200**
+Status code **200**
 
-|名称|类型|必选|约束|中文名|说明|
+|Name|Type|Required|Constraint|Chinese name|Description|
 |---|---|---|---|---|---|
 |» code|integer|true|none||none|
 |» message|string|true|none||none|
@@ -536,57 +535,57 @@ GET /task/auth/detail
 
 POST /task/auth/add
 
-添加任务(默认已经完成的任务)
+Add tasks (completed tasks by default)
 
-> Body 请求参数
+> Body request parameters
 
 ```json
 {
-  "task": {
-    "taskId": 65,
-    "userId": 47,
-    "content": "id nulla dolor consequat ut",
-    "finished": 63,
-    "codeType": "java"
-  }
+   "task": {
+     "taskId": 65,
+     "userId": 47,
+     "content": "id nulla dolor consequat ut",
+     "finished": 63,
+     "codeType": "java"
+   }
 }
 ```
 
-### 请求参数
+### Request parameters
 
-|名称|位置|类型|必选|说明|
+|Name|Location|Type|Required|Description|
 |---|---|---|---|---|
-|Task|query|string| 否 |none|
-|body|body|object| 否 |none|
-|» taskId|body|integer| 是 |none|
-|» userId|body|integer| 是 |none|
-|» content|body|string| 是 |none|
-|» finished|body|integer| 是 |none|
-|» codeType|body|string| 是 |none|
+|Task|query|string| No |none|
+|body|body|object| No |none|
+|» taskId|body|integer| is |none|
+|» userId|body|integer| is |none|
+|» content|body|string| is |none|
+|» finished|body|integer| is |none|
+|» codeType|body|string| is |none|
 
-> 返回示例
+> Return to example
 
-> 成功
+> Success
 
 ```json
 {
-  "code": 200,
-  "message": "success",
-  "data": null
+   "code": 200,
+   "message": "success",
+   "data": null
 }
 ```
 
-### 返回结果
+### Return results
 
-|状态码|状态码含义|说明|数据模型|
+|Status code|Status code meaning|Description|Data model|
 |---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|成功|Inline|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Success|Inline|
 
-### 返回数据结构
+### Return data structure
 
-状态码 **200**
+Status code **200**
 
-|名称|类型|必选|约束|中文名|说明|
+|Name|Type|Required|Constraint|Chinese name|Description|
 |---|---|---|---|---|---|
 |» code|integer|true|none||none|
 |» message|string|true|none||none|
@@ -596,94 +595,94 @@ POST /task/auth/add
 
 GET /task/auth/my/list
 
-获取用户所有任务前十个字符（包括已解决和未解决的）
+Get the first ten characters of all tasks for the user (including resolved and unresolved)
 
-### 请求参数
+### Request parameters
 
-|名称|位置|类型|必选|说明|
+|Name|Location|Type|Required|Description|
 |---|---|---|---|---|
-|userId|query|integer| 是 |none|
+|userId|query|integer| is |none|
 
-> 返回示例
+> Return to example
 
-> 成功
+> Success
 
 ```json
 {
-  "code": 200,
-  "message": "success",
-  "data": [
-    {
-      "taskId": 1,
-      "userId": 1,
-      "content": "sdasdadads...",
-      "finished": 1,
-      "codeType": "json"
-    },
-    {
-      "taskId": 2,
-      "userId": 1,
-      "content": "sdadasdasd...",
-      "finished": 0,
-      "codeType": "python"
-    },
-    {
-      "taskId": 3,
-      "userId": 1,
-      "content": "dassagfdfd...",
-      "finished": 0,
-      "codeType": "java"
-    },
-    {
-      "taskId": 4,
-      "userId": 1,
-      "content": "ghfhfghada...",
-      "finished": 0,
-      "codeType": "java"
-    },
-    {
-      "taskId": 5,
-      "userId": 1,
-      "content": "ghfghgfhsa...",
-      "finished": 0,
-      "codeType": null
-    },
-    {
-      "taskId": 6,
-      "userId": 1,
-      "content": "id nulla d...",
-      "finished": 0,
-      "codeType": "java"
-    },
-    {
-      "taskId": 9,
-      "userId": 1,
-      "content": "id nulla d...",
-      "finished": 0,
-      "codeType": "java"
-    },
-    {
-      "taskId": 10,
-      "userId": 1,
-      "content": "id nulla d...",
-      "finished": 0,
-      "codeType": "java"
-    }
-  ]
+   "code": 200,
+   "message": "success",
+   "data": [
+     {
+       "taskId": 1,
+       "userId": 1,
+       "content": "sdasdadads...",
+       "finished": 1,
+       "codeType": "json"
+     },
+     {
+       "taskId": 2,
+       "userId": 1,
+       "content": "sdadasdasd...",
+       "finished": 0,
+       "codeType": "python"
+     },
+     {
+       "taskId": 3,
+       "userId": 1,
+       "content": "dassagfdfd...",
+       "finished": 0,
+       "codeType": "java"
+     },
+     {
+       "taskId": 4,
+       "userId": 1,
+       "content": "ghfhfghada...",
+       "finished": 0,
+       "codeType": "java"
+     },
+     {
+       "taskId": 5,
+       "userId": 1,
+       "content": "ghfghgfhsa...",
+       "finished": 0,
+       "codeType": null
+     },
+     {
+       "taskId": 6,
+       "userId": 1,
+       "content": "id nulla d...",
+       "finished": 0,
+       "codeType": "java"
+     },
+     {
+       "taskId": 9,
+       "userId": 1,
+       "content": "id nulla d...",
+       "finished": 0,
+       "codeType": "java"
+     },
+     {
+       "taskId": 10,
+       "userId": 1,
+       "content": "id nulla d...",
+       "finished": 0,
+       "codeType": "java"
+     }
+   ]
 }
 ```
 
-### 返回结果
+### Return results
 
-|状态码|状态码含义|说明|数据模型|
+|Status code|Status code meaning|Description|Data model|
 |---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|成功|Inline|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Success|Inline|
 
-### 返回数据结构
+### Return data structure
 
-状态码 **200**
+Status code **200**
 
-|名称|类型|必选|约束|中文名|说明|
+|Name|Type|Required|Constraint|Chinese name|Description|
 |---|---|---|---|---|---|
 |» code|integer|true|none||none|
 |» message|string|true|none||none|
@@ -704,87 +703,87 @@ GET /task/auth/my/list
 
 GET /task/auth/my/ask/list
 
-获取用户所有未解决的任务的（前十个字符）
+Get the (first ten characters) of all unsolved tasks for the user
 
-### 请求参数
+### Request parameters
 
-|名称|位置|类型|必选|说明|
+|Name|Location|Type|Required|Description|
 |---|---|---|---|---|
-|userId|query|integer| 否 |none|
+|userId|query|integer| No |none|
 
-> 返回示例
+> Return to example
 
-> 成功
+> Success
 
 ```json
 {
-  "code": 200,
-  "message": "success",
-  "data": [
-    {
-      "taskId": 2,
-      "userId": 1,
-      "content": "sdadasdasd...",
-      "finished": 0,
-      "codeType": "python"
-    },
-    {
-      "taskId": 3,
-      "userId": 1,
-      "content": "dassagfdfd...",
-      "finished": 0,
-      "codeType": "java"
-    },
-    {
-      "taskId": 4,
-      "userId": 1,
-      "content": "ghfhfghada...",
-      "finished": 0,
-      "codeType": "java"
-    },
-    {
-      "taskId": 5,
-      "userId": 1,
-      "content": "ghfghgfhsa...",
-      "finished": 0,
-      "codeType": null
-    },
-    {
-      "taskId": 6,
-      "userId": 1,
-      "content": "id nulla d...",
-      "finished": 0,
-      "codeType": "java"
-    },
-    {
-      "taskId": 9,
-      "userId": 1,
-      "content": "id nulla d...",
-      "finished": 0,
-      "codeType": "java"
-    },
-    {
-      "taskId": 10,
-      "userId": 1,
-      "content": "id nulla d...",
-      "finished": 0,
-      "codeType": "java"
-    }
-  ]
+   "code": 200,
+   "message": "success",
+   "data": [
+     {
+       "taskId": 2,
+       "userId": 1,
+       "content": "sdadasdasd...",
+       "finished": 0,
+       "codeType": "python"
+     },
+     {
+       "taskId": 3,
+       "userId": 1,
+       "content": "dassagfdfd...",
+       "finished": 0,
+       "codeType": "java"
+     },
+     {
+       "taskId": 4,
+       "userId": 1,
+       "content": "ghfhfghada...",
+       "finished": 0,
+       "codeType": "java"
+     },
+     {
+       "taskId": 5,
+       "userId": 1,
+       "content": "ghfghgfhsa...",
+       "finished": 0,
+       "codeType": null
+     },
+     {
+       "taskId": 6,
+       "userId": 1,
+       "content": "id nulla d...",
+       "finished": 0,
+       "codeType": "java"
+     },
+     {
+       "taskId": 9,
+       "userId": 1,
+       "content": "id nulla d...",
+       "finished": 0,
+       "codeType": "java"
+     },
+     {
+       "taskId": 10,
+       "userId": 1,
+       "content": "id nulla d...",
+       "finished": 0,
+       "codeType": "java"
+     }
+   ]
 }
 ```
 
-### 返回结果
+### Return results
 
-|状态码|状态码含义|说明|数据模型|
+|Status code|Status code meaning|Description|Data model|
 |---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|成功|Inline|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Success|Inline|
 
-### 返回数据结构
+### Return data structure
 
-状态码 **200**
+Status code **200**
 
-|名称|类型|必选|约束|中文名|说明|
+|Name|Type|Required|Constraint|Chinese name|Description|
 |---|---|---|---|---|---|
 |» code|integer|true|none||none|
 |» message|string|true|none||none|
@@ -799,45 +798,45 @@ GET /task/auth/my/ask/list
 
 GET /task/auth/my/accept/list
 
-返回用户已完成task的信息
+Return information that the user has completed the task
 
-### 请求参数
+### Request parameters
 
-|名称|位置|类型|必选|说明|
+|Name|Location|Type|Required|Description|
 |---|---|---|---|---|
-|userId|query|integer| 否 |none|
+|userId|query|integer| No |none|
 
-> 返回示例
+> Return to example
 
-> 成功
+> Success
 
 ```json
 {
-  "code": 200,
-  "message": "success",
-  "data": [
-    {
-      "taskId": 1,
-      "userId": 1,
-      "content": "sdasdadads...",
-      "finished": 1,
-      "codeType": "json"
-    }
-  ]
+   "code": 200,
+   "message": "success",
+   "data": [
+     {
+       "taskId": 1,
+       "userId": 1,
+       "content": "sdasdadads...",
+       "finished": 1,
+       "codeType": "json"
+     }
+   ]
 }
 ```
 
-### 返回结果
+### Return results
 
-|状态码|状态码含义|说明|数据模型|
+|Status code|Status code meaning|Description|Data model|
 |---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|成功|Inline|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Success|Inline|
 
-### 返回数据结构
+### Return data structure
 
-状态码 **200**
+Status code **200**
 
-|名称|类型|必选|约束|中文名|说明|
+|Name|Type|Required|Constraint|Chinese name|Description|
 |---|---|---|---|---|---|
 |» code|integer|true|none||none|
 |» message|string|true|none||none|
@@ -852,61 +851,61 @@ GET /task/auth/my/accept/list
 
 GET /task/auth/task/detail
 
-返回用户所有任务和答案详情
+Returns all task and answer details for the user
 
-### 请求参数
+### Request parameters
 
-|名称|位置|类型|必选|说明|
+|Name|Location|Type|Required|Description|
 |---|---|---|---|---|
-|taskId|query|integer| 否 |none|
+|taskId|query|integer| No |none|
 
-> 返回示例
+> Return to example
 
-> 成功
+> Success
 
 ```json
 {
-  "code": 200,
-  "message": "success",
-  "data": {
-    "task": {
-      "taskId": 11,
-      "userId": null,
-      "content": null,
-      "finished": 0,
-      "codeType": null
-    },
-    "answerList": [
-      {
-        "answerId": 1,
-        "taskId": 11,
-        "userId": 13,
-        "content": "string",
-        "accepted": 1
-      },
-      {
-        "answerId": 2,
-        "taskId": 11,
-        "userId": 13,
-        "content": "string",
-        "accepted": 0
-      }
-    ]
-  }
+   "code": 200,
+   "message": "success",
+   "data": {
+     "task": {
+       "taskId": 11,
+       "userId": null,
+       "content": null,
+       "finished": 0,
+       "codeType": null
+     },
+     "answerList": [
+       {
+         "answerId": 1,
+         "taskId": 11,
+         "userId": 13,
+         "content": "string",
+         "accepted": 1
+       },
+       {
+         "answerId": 2,
+         "taskId": 11,
+         "userId": 13,
+         "content": "string",
+         "accepted": 0
+       }
+     ]
+   }
 }
 ```
 
-### 返回结果
+### Return results
 
-|状态码|状态码含义|说明|数据模型|
+|Status code|Status code meaning|Description|Data model|
 |---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|成功|Inline|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Success|Inline|
 
-### 返回数据结构
+### Return data structure
 
-状态码 **200**
+Status code **200**
 
-|名称|类型|必选|约束|中文名|说明|
+|Name|Type|Required|Constraint|Chinese name|Description|
 |---|---|---|---|---|---|
 |» code|integer|true|none||none|
 |» message|string|true|none||none|
@@ -924,71 +923,68 @@ GET /task/auth/task/detail
 |»»» content|string|true|none||none|
 |»»» accepted|integer|true|none||none|
 
-# codeGeneration
+#codeGeneration
 
 ## POST produceCode
 
 POST /createItem
 
-请将host地址调至模型地址，之后直接使用接口进行调用即可
+Please adjust the host address to the model address, and then directly use the interface to call it.
 
-> Body 请求参数
+> Body request parameters
 
 ```json
 {
-  "lang": "string",
-  "prompt": "string",
-  "seed": 0,
-  "max_length": 0,
-  "top_p": 0,
-  "temperature": 0,
-  "top_k": 0
+   "lang": "string",
+   "prompt": "string",
+   "seed": 0,
+   "max_length": 0,
+   "top_p": 0,
+   "temperature": 0,
+   "top_k": 0
 }
 ```
 
-### 请求参数
+### Request parameters
 
-|名称|位置|类型|必选|说明|
+|Name|Location|Type|Required|Description|
 |---|---|---|---|---|
-|Content-Type|header|string| 否 |包体类型，此header固定|
-|body|body|object| 否 |none|
-|» lang|body|string| 是 |从'Python'，‘Java’，‘JavaScript’三个数据值中选择，|
-|» prompt|body|string| 是 |客户需求，请前端规划成自然语言形式|
-|» seed|body|integer¦null| 否 |默认为2000|
-|» max_length|body|integer¦null| 否 |最长返回值，默认为128|
-|» top_p|body|integer¦null| 否 |默认为0.95|
-|» temperature|body|integer¦null| 否 |默认为0.2|
-|» top_k|body|integer¦null| 否 |默认为0|
+|Content-Type|header|string| No |Package body type, this header is fixed|
+|body|body|object| No |none|
+|» lang|body|string| Yes |Select from three data values of 'Python', 'Java', 'JavaScript', |
+|» prompt|body|string| Yes |Customer needs, please plan the front-end into natural language form|
+|» seed|body|integer¦null| No |Default is 2000|
+|» max_length|body|integer¦null| No |The longest return value, the default is 128|
+|» top_p|body|integer¦null| No |Default is 0.95|
+|» temperature|body|integer¦null| No |Default is 0.2|
+|» top_k|body|integer¦null| No |Default is 0|
 
-> 返回示例
+> Return to example
 
 > 200 Response
 
 ```json
 {
-  "response": "string",
-  "lang": "string",
-  "status": 0,
-  "time": "string"
+   "response": "string",
+   "lang": "string",
+   "status": 0,
+   "time": "string"
 }
 ```
 
-### 返回结果
+### Return results
 
-|状态码|状态码含义|说明|数据模型|
+|Status code|Status code meaning|Description|Data model|
 |---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|成功|Inline|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Success|Inline|
 
-### 返回数据结构
+### Return data structure
 
-状态码 **200**
+Status code **200**
 
-|名称|类型|必选|约束|中文名|说明|
+|Name|Type|Required|Constraint|Chinese name|Description|
 |---|---|---|---|---|---|
-|» response|string|true|none||LLM的具体答复|
-|» lang|string|true|none||编程语言种类|
+|» response|string|true|none||Specific reply from LLM|
+|» lang|string|true|none||Programming language type|
 |» status|integer|true|none||none|
-|» time|string|true|none||解析时间|
-
-# 数据模型
-
+|» time|string|true|none||Parse time|
